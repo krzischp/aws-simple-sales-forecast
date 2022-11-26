@@ -1,0 +1,13 @@
+TODO:
+obs.: I can reuse the exact same AWS components as for titanic case
+
+create RDS database
+-- update pokemon.sql
+-- then execute it in beaver
+
+raw-to-structured:
+- https://gist.github.com/33sticks/e033dee49a061101078c
+-- parse url file and save all to csv
+-- save csv to bucket
+
+next steps: very similar to titanic case
