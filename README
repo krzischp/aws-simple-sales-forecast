@@ -18,29 +18,28 @@ conda create -yn python3.7-env 'python=3.7' 'certifi>2020'
 conda activate python3.7-env
 pip install jupyterlab
 
-
 jupyter notebook
-
 
 #####################
 S3:
 simple-forecast-bucket
+https://s3.console.aws.amazon.com/s3/buckets/simple-forecast-bucket?region=us-east-1&tab=objects
 
 Lambda:
 simple-forecast-raw-to-structured
-https://s3.console.aws.amazon.com/s3/buckets/simple-forecast-bucket?region=us-east-1&tab=objects
+https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/simple-forecast-raw-to-structured?newFunction=true&tab=code
 
 S3:
 simple-forecast-structured-files-bucket
-https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/simple-forecast-raw-to-structured?newFunction=true&tab=code
+https://s3.console.aws.amazon.com/s3/buckets/simple-forecast-structured-files-bucket?region=us-east-1&tab=objects
 
 SQS:
 simple-forecast-queue
+https://us-east-1.console.aws.amazon.com/sqs/v2/home?region=us-east-1#/queues/https%3A%2F%2Fsqs.us-east-1.amazonaws.com%2F093693999199%2Fsimple-forecast-queue
 
 Lambda of structured to SQS:
 simple-forecast-structured-to-sqs
 	- need to add AmazonEC2FullAccess permission to Lambda role so we can add it to RDS VPC
-
 
 Lambda with SQS trigger:
 simple-forecast-sqs-to-rds

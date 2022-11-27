@@ -11,7 +11,7 @@ def save_to_rds(item):
     rds_host = "krz-ml-mba-test-1.c30a8z23goab.us-east-1.rds.amazonaws.com"
     name = "admin"
     password = "bernardGerard"
-    db_name = "titanic_database"
+    db_name = "pokemon_database"
 
     try:
         logger.info('Connecting')
@@ -24,18 +24,15 @@ def save_to_rds(item):
 
     logger.info('Saving Passenger Data')
     with conn.cursor() as cur:
-        condition = ("PassengerId" in item) and \
-                        ("Survived" in item) and \
-                        ("Pclass" in item) and \
-                        ("Sex" in item) and \
-                        ("Age" in item) and \
-                        ("SibSp" in item) and \
-                        ("Parch" in item) and \
-                        ("Fare" in item) and \
-                        ("Embarked" in item)
+        condition = ("id" in item) and \
+                        ("name" in item) and \
+                        ("past_types" in item) and \
+                        ("height" in item) and \
+                        ("weight" in item) and \
+                        ("moves" in item)
         if condition:
             try:
-                sql = f'''insert into titanic_passengers (passenger_id, survived, pclass, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked) values ({item['PassengerId']}, "{item['Survived']}", "{item['Pclass']}", "{item['Age']}", "{item['Sex']}", "{item['Age']}", "{item['SibSp']}", "{item['Parch']}", "{item['Age']}", "{item['Fare']}", "{item['Age']}", "{item['Embarked']}")'''
+                sql = f'''insert into pokemon (id, name, past_types, height, weight, moves) values ({item['id']}, "{item['name']}", "{item['past_types']}", "{item['height']}", "{item['weight']}", "{item['moves']}")'''
                 cur.execute(sql)
                 conn.commit()
                 logger.info('Data saved')

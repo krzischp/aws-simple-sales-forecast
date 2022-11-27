@@ -1,16 +1,10 @@
-create database titanic_database;
+create database pokemon_database;
 
-create table titanic_database.titanic_passengers(
-	passenger_id int primary key,
-	survived varchar(255),
-	pclass varchar(255),
+create table pokemon_database.pokemon(
+	id int primary key,
 	name varchar(255),
-	sex varchar(255),
-	age varchar(255),
-	sibsp varchar(255),
-	parch varchar(255),
-	ticket varchar(255),
-	fare varchar(255),
-	cabin varchar(255),
-	embarked varchar(255)
+	past_types int,
+	height int,
+	weight int,
+	moves int
 );
